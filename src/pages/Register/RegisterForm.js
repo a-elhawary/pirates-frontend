@@ -59,7 +59,6 @@ function RegisterForm(){
                         <option value="1" selected disabled hidden></option>
                         <option value="2">Male</option>
                         <option value="3">Female</option>
-                        <option value="4">Ryan Gosling</option>
                     </select>
                     <label className="form-label select-label">Choose gender</label>
 
