@@ -39,7 +39,7 @@ function AddEvent(){ /** WHAT THE FUCK IS set? */
 
     const handleSubmit = (event) =>{
         event.preventDefault();
-        axios.post('http://localhost:80/events',inputs);
+        axios.post('http://localhost:80/addevents',inputs);
         console.log(inputs);
     
     }
