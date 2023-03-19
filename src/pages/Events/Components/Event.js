@@ -6,7 +6,7 @@ function Event(props){
         <div>
             <article className="eventcard light blue">
                 <a className="eventcard__img_link" href="#">
-                    <img className="eventcard__img" src="https://picsum.photos/1000/1000" alt="Image Title" />
+                    <img className="eventcard__img" src={props.src} alt="Image Title" />
                 </a>
                 <div className="eventcard__text t-dark">
                     <h1 className="eventcard__title blue"><a href="#">{props.title}</a></h1>
