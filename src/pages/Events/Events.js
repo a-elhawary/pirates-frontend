@@ -21,8 +21,9 @@ function Events(){
                     <h1 className="h1 text-center" id="pageHeaderTitle">Events</h1>
 
                     {data.map((dataItem,index)=>{
+                        
                         var d = new Date(dataItem.Date);
-                        var readableDate=d.toLocaleString();
+                        var readableDate=d.toLocaleString("en-IN");
                         if(dataItem.isShown == 1)
                         {return(
                             <Event title={dataItem.Name}
