@@ -2,6 +2,7 @@
 /* This pen */
  body {
 	 font-family: "Baloo 2", cursive;
+	 position: relative;
 	 font-size: 16px;
 	 color: #fff;
 	 text-rendering: optimizeLegibility;
@@ -11,7 +12,8 @@
 	 background: #110f16;
 }
 .light {
-	background: linear-gradient(103deg, rgb(235, 225, 188) 7.2%, rgb(232, 188, 234) 57.5%, rgb(203, 209, 244) 90.7%);;
+	background: linear-gradient(103deg, rgb(235, 225, 188) 7.2%, rgb(232, 188, 234) 57.5%, rgb(203, 209, 244) 90.7%);
+	padding-top: 3.31rem;
 }
  a, a:hover {
 	 text-decoration: none;

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from "../../Components/Header/Header";
 import "./Events.css"
 import Event from "./Components/Event";
 import axios from 'axios';
@@ -16,6 +17,7 @@ function Events(){
 
     return(
         <div>
+            <Header/>
             <section className="light">
                 <div className="container py-2 text-dark">
                     <h1 className="h1 text-center" id="pageHeaderTitle">Events</h1>
@@ -27,6 +29,7 @@ function Events(){
                         if(dataItem.isShown == 1)
                         {return(
                             <Event title={dataItem.Name}
+                                key = {index}
                                 date = {readableDate}
                                 description={dataItem.Description}
                                 location={dataItem.Location}
