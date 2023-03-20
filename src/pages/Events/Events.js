@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "../../Components/Header/Header";
+import Footer from "../../Components/Footer/Footer";
 import "./Events.css"
 import Event from "./Components/Event";
 import axios from 'axios';
@@ -43,6 +44,7 @@ function Events(){
                     })}
                 </div>
             </section>
+            <Footer/>
         </div>
     );
 }
