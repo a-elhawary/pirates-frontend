@@ -8,7 +8,7 @@ function Header() {
 
     return (
         <section className="top-nav">
-            <img className = "logo" src={logo} alt="Pirates-logo"/>
+            <a class="navbar-brand" href="home"><img className = "logo" src={logo} href = "home" alt="Pirates-logo"/></a>
             <input id="menu-toggle" type="checkbox" />
             <label className='menu-button-container' htmlFor="menu-toggle">
                 <div className='menu-button'></div>
