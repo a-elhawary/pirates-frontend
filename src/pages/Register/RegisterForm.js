@@ -52,7 +52,7 @@ function RegisterForm(){
                     <div className="form-name-container">
                         <div className="form-floating">
                         <input  onChange={handleChange} type="text" className="form-control"  placeholder="First name" required name="FirstName"/>
-                            <label htmlFor="floatingInput">First name</label>
+                        <label htmlFor="floatingInput">First name</label>
                         </div>
                         <div className="form-floating">
                             <input  onChange={handleChange} type="text" className="form-control"  placeholder="First name" required name="LastName"/>
@@ -85,8 +85,8 @@ function RegisterForm(){
 
                     <select id="Gender" onChange={handleSelect} className="form-control gender-selector" name="Gender">
                         <option value="1" selected disabled hidden></option>
-                        <option value="2">Male</option>
-                        <option value="3">Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
                     </select>
                     <label className="form-label select-label">Choose gender</label>
 
