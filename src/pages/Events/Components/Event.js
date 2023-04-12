@@ -5,11 +5,11 @@ function Event(props){
     return(
         <div>
             <article className="eventcard light blue">
-                <a className="eventcard__img_link" href="#">
+                <a className="eventcard__img_link" href={"/Events/"+props.title}>
                     <img className="eventcard__img" src={props.src} alt="Image Title" />
                 </a>
                 <div className="eventcard__text t-dark">
-                    <h1 className="eventcard__title blue"><a href="#">{props.title}</a></h1>
+                    <h1 className="eventcard__title blue"><a href={props.title}>{props.title}</a></h1>
                     <div className="eventcard__subtitle small">
                         <time>
                             <i className="fas fa-calendar-alt mr-2"></i>{props.date}
@@ -21,7 +21,7 @@ function Event(props){
                         <li className="tag__item">{props.location}</li>
                         <li className="tag__item">{props.admitting}</li>
                         <li className="tag__item play blue">
-                            <a href="#">Know more</a>
+                            <a href={props.title}>Know more</a>
                         </li>
                     </ul>
                 </div>

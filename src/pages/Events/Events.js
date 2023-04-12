@@ -5,7 +5,7 @@ import Footer from "../../Components/Footer/Footer";
 import "./Events.css"
 import Event from "./Components/Event";
 import axios from 'axios';
-
+import {NavLink,Outlet} from "react-router-dom";
 function Events(){
     const [data,setData] = useState([]);
 
@@ -44,6 +44,9 @@ function Events(){
                     })}
                 </div>
             </section>
+            <main>
+                <Outlet/>
+            </main>
             <Footer/>
         </div>
     );

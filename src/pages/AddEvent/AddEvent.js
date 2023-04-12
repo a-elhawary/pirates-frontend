@@ -3,8 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './AddEvent.css';
 import axios from 'axios';
 import dateFormat, { masks } from "dateformat";
-/** WhAT THE FUCK IS THESE IMPORTS? */
-function AddEvent(){ /** WHAT THE FUCK IS set? */
+
+function AddEvent(){ 
 
 
 

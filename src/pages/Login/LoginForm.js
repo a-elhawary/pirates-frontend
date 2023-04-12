@@ -46,6 +46,7 @@ function LoginForm(){
                 <p className="mt-5 mb-3">don't have an account? <a href="">Register Now</a></p>
                 <p className="mt-5 mb-3 text-muted">&copy; 2009–2023</p>
             </form>
+
         </div>
     );
 }
