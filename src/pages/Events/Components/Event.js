@@ -18,10 +18,10 @@ function Event(props){
                     <div className="eventcard__bar"></div>
                     <div className="eventcard__preview-txt">{props.description}</div>
                     <ul className="eventcard__tagbox">
-                        <li className="tag__item"><i className="fas fa-tag mr-2"></i>{props.location}</li>
-                        <li className="tag__item"><i className="fas fa-clock mr-2"></i>{props.admitting}</li>
+                        <li className="tag__item">{props.location}</li>
+                        <li className="tag__item">{props.admitting}</li>
                         <li className="tag__item play blue">
-                            <a href="#"><i className="fas fa-play mr-2"></i>Know more</a>
+                            <a href="#">Know more</a>
                         </li>
                     </ul>
                 </div>

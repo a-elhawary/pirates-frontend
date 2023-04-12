@@ -34,7 +34,7 @@ function Events(){
                                 date = {readableDate}
                                 description={dataItem.Description}
                                 location={dataItem.Location}
-                                admitting={dataItem.isAdmitting == 1 ? "Admitting" : "Clossed"}
+                                admitting={dataItem.isAdmitting == 1 ? "Admitting" : "Closed"}
                                 src={dataItem.Image}
                             />
                         );}
