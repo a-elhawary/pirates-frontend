@@ -262,7 +262,7 @@
 	box-shadow: none;
 	transform: translateY(0);
   }
-  .btn{
+  .eventcard__text .btn{
 	position: relative;
 	width: 25%;
 	margin-left: auto;

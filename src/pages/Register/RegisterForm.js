@@ -7,14 +7,8 @@ import axios from 'axios';
 import {useNavigate} from "react-router-dom";
 
 function RegisterForm(){
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [number, setNumber] = useState("");
-    const [birthDate, setBirthDate] = useState("");
-    // const [gender, setGender] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [confirmpassword, setConfirmPassword] = useState("");
+
+    const [showPassowrdMissmatch,setShowPasswordMissmatch] = useState(false);
 
     const [inputs,setInputs] = useState({});
 
@@ -22,6 +16,25 @@ function RegisterForm(){
         const name = event.target.name;
         const value = event.target.value;
 
+        if(name==="ConfirmPassword"){
+            if(!(inputs["Password"]===value)){
+                setShowPasswordMissmatch(true);
+            }
+            else{
+                setShowPasswordMissmatch(false);
+            }
+        }
+        else if(name==="Password"){
+            if("ConfirmPassword" in inputs){
+                if(!(inputs["ConfirmPassword"]===value)){
+                    setShowPasswordMissmatch(true);
+                }
+                else{
+                    setShowPasswordMissmatch(false);
+                }
+            }
+        }
+        
         setInputs(values => ({...values,[name]: value}));
     }
     const handleSelect = (event) => {
@@ -51,28 +64,30 @@ function RegisterForm(){
                 <div className="col-md-6">
                     <div className="form-name-container">
                         <div className="form-floating">
-                        <input  onChange={handleChange} type="text" className="form-control"  placeholder="First name" required name="FirstName"/>
+                        <input  onChange={handleChange} type="text" className="form-control"  placeholder="First name" required pattern="[A-Za-z\s]+" title="Name can have charachters and spaces only" name="FirstName"/>
                         <label htmlFor="floatingInput">First name</label>
                         </div>
                         <div className="form-floating">
-                            <input  onChange={handleChange} type="text" className="form-control"  placeholder="First name" required name="LastName"/>
+                            <input  onChange={handleChange} type="text" className="form-control"  placeholder="First name" required pattern="[A-Za-z\s]+" title="Name can have charachters and spaces only" name="LastName"/>
                             <label htmlFor="floatingInput">Last name</label>
                         </div>
                     </div>
                     <div className="form-floating">
-                        <input onChange={handleChange} type="email" className="form-control"  placeholder="name@example.com" required name="Email"/>
+                        <input onChange={handleChange} type="email" className="form-control"  placeholder="name@example.com" required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="Email"/>
                         <label htmlFor="floatingInput">Email address</label>
                     </div>
                     <div className="form-floating">
-                        <input onChange={handleChange} type="password" className="form-control"  placeholder="Password" required name="Password" />
+                        <input onChange={handleChange} type="password" className="form-control"  placeholder="Password" required  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+  title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" name="Password" />
                         <label htmlFor="floatingPassword">Password</label>
                     </div>
                     <div className="form-floating">
-                        <input onChange={handleChange} type="password" className="form-control"  placeholder="Confirm Password" required name="Role"/>
+                        <input onChange={handleChange} type="password" className="form-control"  placeholder="Confirm Password" required name="ConfirmPassword"/>
                         <label htmlFor="floatingPassword">Confirm Password</label>
                     </div>
+                    {showPassowrdMissmatch? <p style={{"color":"red"}}>passwords must match</p>:null}
                     <div className="form-floating">
-                        <input onChange={handleChange} type="tel" className="form-control"  placeholder="Phone number" required name="PhoneNumber"/>
+                        <input onChange={handleChange} type="tel" className="form-control"  placeholder="Phone number" required pattern="^(010|011|012|015|\+2010|\+2011|\+2012|\+2015)[0-9]{8}$" title="invalid phone number" name="PhoneNumber"/>
                         <label htmlFor="floatingPassword">Phone number</label>
                     </div>
                 </div>
@@ -83,8 +98,8 @@ function RegisterForm(){
                     </div>
                     <div className="form-floating">
 
-                    <select id="Gender" onChange={handleSelect} className="form-control gender-selector" name="Gender">
-                        <option value="1" selected disabled hidden></option>
+                    <select id="Gender" onChange={handleSelect} className="form-control gender-selector" name="Gender" required title="field required">
+                        <option value="" selected disabled hidden></option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
@@ -93,8 +108,8 @@ function RegisterForm(){
                     </div>
                     <div className="form-floating">
 
-                    <select id="Uni" onChange={handleSelect} className="form-control university-selector" name="University" >
-                        <option value="1" selected disabled hidden></option>
+                    <select id="Uni" onChange={handleSelect} className="form-control university-selector" name="University" required >
+                        <option value="" selected disabled hidden></option>
                         <option value="Ain Shams University">Ain Shams University</option>
                         <option value="Cairo University">Cairo University</option>
                         <option value="MUST">MUST</option>
@@ -104,15 +119,17 @@ function RegisterForm(){
                     </div>
                     <div className="form-floating">
 
-                    <select id="Faculty" onChange={handleSelect} className="form-control faculty-selector" name="Faculty" >
-                        <option value="1" selected disabled hidden></option>
+                    <select id="Faculty" onChange={handleSelect} className="form-control faculty-selector" name="Faculty" required >
+                        <option value="" selected disabled hidden></option>
                         <option value="Engineering">Engineering</option>
                         <option value="Computer Science">Computer Science</option>
                         <option value="Commerce">Commerce</option>
                     </select>
                     <label className="form-label select-label">Choose Faculty</label>
                     </div>
+                    {showPassowrdMissmatch? <p style={{"color":"transparent"}}>work smart</p>:null}
                     <button className="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+
                     </div>
                 </div>
                 <p className="mt-5">already have an account? <a href="">Login</a></p>
