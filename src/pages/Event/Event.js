@@ -26,7 +26,7 @@ function Event() {
     
 
     return(
-        <div>
+        <div className="Event">
         <Header/>
             <section className="light">
                 <div className="container py-2 text-dark">

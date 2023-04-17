@@ -1,18 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway);
- h2 {
-	vertical-align: center;
-	text-align: center;
-}
- html, body {
-	margin: 0;
-	height: 100%;
-}
- * {
-	font-family: "Raleway";
-	box-sizing: border-box;
-}
 
  .top-nav {
+	font-family: "Raleway";
+	box-sizing: border-box;
 	display: flex;
 position: fixed;
 
@@ -40,6 +30,7 @@ z-index: 2;
 	padding: 0;
 }
  .menu > li a {
+	text-decoration: none;
 	margin: 0 1rem;
 	color: white;
 	overflow: hidden;

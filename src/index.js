@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Events from "./pages/Events/Events";
-//import RegisterForm from "./pages/Register/RegisterForm";
-// import LoginForm from "./pages/Login/LoginForm";
-//import Header from "./Components/Header/Header";
-// import AddInterviewSlot from './pages/AddInterviewSlot/AddInterviewSlot';
+import RegisterForm from "./pages/Register/RegisterForm";
+import LoginForm from "./pages/Login/LoginForm";
+import AddEvent from './pages/AddEvent/AddEvent';
+import AddInterviewSlot from './pages/AddInterviewSlot/AddInterviewSlot';
 import Event from "./pages/Event/Event"
-import RootLayout from './Routes/RootLayout';
+/*import RootLayout from './Routes/RootLayout';
 
 import { BrowserRouter, Routes } from 'react-router-dom';
 import {
@@ -24,11 +24,9 @@ const router = createBrowserRouter(
     </Route>
 
   )
-);
+);*/
 
 const root = ReactDOM.createRoot(document.getElementById('root'));        
 root.render( 
-  <React.StrictMode>
-  <RouterProvider router={router} />
-</React.StrictMode>
-  );
+<RegisterForm/>  
+);

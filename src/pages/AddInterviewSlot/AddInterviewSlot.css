@@ -1,9 +1,8 @@
-html,
-body {
-  height: 100%;
-}
 
-body {
+
+.AddInterviewSlot {
+  height: 100vh;
+  width:100vw;
   display: flex;
   align-items: flex-start;
   padding-top: 70px;

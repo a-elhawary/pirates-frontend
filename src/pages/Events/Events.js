@@ -17,7 +17,7 @@ function Events(){
     },[]);
 
     return(
-        <div>
+        <div className = "Events">
             <Header/>
             <section className="light">
                 <div className="container py-2 text-dark">

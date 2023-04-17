@@ -42,8 +42,8 @@ function RegisterForm(){
 
 
     return(
-        <div className="flex-fix">
-        <div className="RegisterForm form-signup w-100 m-auto">
+        <div className="RegisterForm">
+        <div className="form-signup w-100 m-auto">
             <img className="mb-4" src={logo} alt="Pirates-logo" width="25%"/>
             <form onSubmit={handleSubmit}>
                 <div className="row">

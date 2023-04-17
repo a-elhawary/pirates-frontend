@@ -1,21 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+2&display=swap");
-/* This pen */
- body {
-	 font-family: "Baloo 2", cursive;
-	 position: relative;
-	 font-size: 16px;
-	 color: #fff;
-	 text-rendering: optimizeLegibility;
-	 font-weight: initial;
+ .Events {
+	height: 100vh;
+	width:100vw;
+	font-family: "Baloo 2", cursive;
+	position: relative;
+	font-size: 16px;
+	color: #fff;
+	text-rendering: optimizeLegibility;
+	font-weight: initial;
 }
  .dark {
 	 background: #110f16;
 }
 .light {
 	background: linear-gradient(103deg, rgb(235, 225, 188) 7.2%, rgb(232, 188, 234) 57.5%, rgb(203, 209, 244) 90.7%);
-	padding-top: 3.31rem;
 }
- a, a:hover {
+ .event-link, .event-link:hover {
 	 text-decoration: none;
 	 transition: color 0.3s ease-in-out;
 }
