@@ -3,13 +3,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './RegisterForm.css';
 import logo from "../../assets/logo.png";
 import axios from 'axios';
+import dateFormat, { masks } from "dateformat";
 
 import {useNavigate} from "react-router-dom";
 
 function RegisterForm(){
 
     const [showPassowrdMissmatch,setShowPasswordMissmatch] = useState(false);
-
+    masks.DBFormat = 'yyyy-mm-dd';
+    var now = new Date();
+    now.setFullYear(now.getFullYear() - 15);
+    const max = dateFormat(now,"DBFormat");
+    now.setFullYear(now.getFullYear() - 30);
+    const min = dateFormat(now,"DBFormat");
     const [inputs,setInputs] = useState({});
 
     const handleChange = (event) => {
@@ -93,7 +99,7 @@ function RegisterForm(){
                 </div>
                 <div className="col-md-6">
                     <div className="form-floating">
-                        <input  onChange={handleChange} type="date" className="form-control"  placeholder="Birth date" required name="DOB"/>
+                        <input  onChange={handleChange} type="date" className="form-control"  placeholder="Birth date" required name="DOB" min={min} max={max}/>
                         <label htmlFor="floatingPassword">Birth date</label>
                     </div>
                     <div className="form-floating">

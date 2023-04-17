@@ -32,7 +32,7 @@ function Events(){
                             <Event title={dataItem.Name}
                                 key = {index}
                                 date = {readableDate}
-                                description={dataItem.Description}
+                                description={dataItem.Description.substring(0, 100) + " ..."}
                                 location={dataItem.Location}
                                 admitting={dataItem.isAdmitting == 1 ? "Admitting" : "Closed"}
                                 src={dataItem.Image}
