@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Events from "./pages/Events/Events";
 import RegisterForm from "./pages/Register/RegisterForm";
+import EventRegistration from "./pages/EventRegistration/EventRegistration";
 import LoginForm from "./pages/Login/LoginForm";
 import AddEvent from './pages/AddEvent/AddEvent';
 import AddInterviewSlot from './pages/AddInterviewSlot/AddInterviewSlot';
@@ -31,5 +32,5 @@ root.render(
 //   <React.StrictMode>
 //   <RouterProvider router={router} />
 // </React.StrictMode>
-<RegisterForm/>
+<EventRegistration/>
 );
