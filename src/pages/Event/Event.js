@@ -3,9 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import Eventcomp from "../Events/Components/Event";
-import axios from 'axios';
 import "./Event.css"
-import {get} from "../../connection";
+import {get, backend_url} from "../../connection";
 
 function Event() {
     var readableDate
@@ -36,7 +35,7 @@ function Event() {
                                 description=""
                                 location={data.Location}
                                 admitting={data.isAdmitting == 1 ? "Admitting" : "Closed"}
-                                src={data.Image}
+                                src={backend_url+data.Image}
                             />
                                 <div>
             <article className="eventcard light blue">

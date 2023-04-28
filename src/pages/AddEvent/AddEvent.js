@@ -8,12 +8,14 @@ import {useNavigate} from "react-router-dom";
 
 function AddEvent(){ 
     const navigate = useNavigate();
+
     useEffect(function (){
         var isAdmin = isCurrentUserAdmin(); 
         if(!isAdmin){
             navigate("/");
         }
     }, []);
+
     const [inputs,setInputs] = useState({});
     masks.DBFormat = 'yyyy-mm-dd"T"H:MM';
 
@@ -30,6 +32,12 @@ function AddEvent(){
         setInputs(values => ({...values,[name]: value}));
     }
 
+    const handleFile = (event) => {
+        const name = event.target.name;
+        const value = event.target.files[0];
+        setInputs(values => ({...values,[name]: value}));
+    }
+
     const handleCheck = (event) => { 
         const name = event.target.name;
         const checked = event.target.checked;
@@ -40,9 +48,19 @@ function AddEvent(){
 
     const handleSubmit = (event) =>{
         event.preventDefault();
+        const data = new FormData();
+        for(const key in inputs){
+            if((key == "isShown" || key == "isAdmitting") && inputs[key] == true){
+                data.append(key, 1);
+            }else if(key == "isShown" || key == "isAdmitting"){
+                data.append(key, 0);
+            }else{
+                data.append(key, inputs[key]);
+            }
+        }
         post({
             route:"/addevents",
-            data:inputs,
+            data:data,
             callback:function(){
                 navigate("/events");
             }
@@ -71,8 +89,8 @@ return(
                             <input onChange={handleChange} type="datetime-local" name="Date" placeholder="Pick a Date" required min={min} max={max}/>
                         </div>
                         <div class="input-box">
-                            <span class="details">Event Image URL</span>
-                            <input onChange={handleChange} type="url" name="Image" placeholder="Enter the URL" required/>
+                            <span class="details">Event Image</span>
+                            <input onChange={handleFile} type="file" name="Image" placeholder="Enter the URL" required/>
                         </div>
                         <div class="input-box">
                             <span class="details">Event Description</span>

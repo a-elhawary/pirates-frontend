@@ -1,5 +1,5 @@
 import axios from "axios";
-const backend_url = "http://localhost/pirates-backend";
+export const backend_url = "http://localhost/pirates-backend";
 
 export function post({route, data, callback}){
     axios.post(backend_url + route,data).then(

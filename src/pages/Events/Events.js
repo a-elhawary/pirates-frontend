@@ -3,7 +3,7 @@ import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import "./Events.css"
 import Event from "./Components/Event";
-import {isCurrentUserAdmin, get} from "../../connection";
+import {isCurrentUserAdmin, get, backend_url} from "../../connection";
 import {useState, useEffect} from "react";
 
 function Events(){
@@ -48,7 +48,7 @@ function Events(){
                                 description={dataItem.Description.substring(0, 100) + " ..."}
                                 location={dataItem.Location}
                                 admitting={dataItem.isAdmitting == 1 ? "Admitting" : "Closed"}
-                                src={dataItem.Image}
+                                src={backend_url+dataItem.Image}
                             />
                         );}
                         else{
