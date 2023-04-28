@@ -60,6 +60,7 @@ export default function SlotViewer(props){
     const [choosenDay, setChoosenDay] = useState("");
     const [slots, setSlots] = useState([]);
 
+    const token = getToken();
     useEffect(function(){
         get({
             route: props.getDayRoute,
@@ -70,7 +71,6 @@ export default function SlotViewer(props){
             }
         });
 
-        const token = getToken();
         const dayRouteSplit = props.getDayRoute.split("");
         const eventID = dayRouteSplit[dayRouteSplit.length - 1];
         get({
@@ -87,8 +87,23 @@ export default function SlotViewer(props){
         get({
             route: props.getSlotsRoute + choosenDay,
             callback:function (response){
-                setSlots(response.data);
-                console.log(response.data);
+                var slots = response.data;
+                for(var i = 0; i < slots.length - 1; i++){
+                    if(slots[i].StartTime == slots[i+1].StartTime){
+                        if(slots[i].StudentEmail != null && slots[i].StudentEmail != token.email){
+                            console.log("removed first");
+                            slots.splice(i, 1);
+                            i--;
+                        }else{
+                            console.log("removed second");
+                            slots.splice(i + 1, 1);
+                            i--;
+                        }
+                    }
+                }
+                console.log(slots);
+                console.log(token.email);
+                setSlots(slots);
             }
         });
     },[choosenDay]);
