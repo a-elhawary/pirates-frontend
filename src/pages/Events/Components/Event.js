@@ -1,10 +1,23 @@
-import React, { useState } from "react";
+import { useState , useEffect} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Link} from "react-router-dom";
+import {isCurrentUserAdmin, getToken, get} from "../../../connection";
 
 function Event(props){
+    const [isRegistered, setIsRegistered] = useState(false);
+
+    useEffect(function(){
+        const token = getToken();
+        get({
+            route:"/isregistered/"+props.id+"/"+token.id,
+            callback:(response) => {
+                setIsRegistered(response.data.isRegistered);
+            },
+        });
+    },[]);
     return(
         <div>
-            <article className="eventcard light blue">
+            <article className="eventcard">
                 <a className="eventcard__img_link event_link" href={"/Events/"+props.title}>
                     <img className="eventcard__img" src={props.src} alt="Image Title" />
                 </a>
@@ -20,9 +33,19 @@ function Event(props){
                     <ul className="eventcard__tagbox">
                         <li className="tag__item">{props.location}</li>
                         <li className="tag__item">{props.admitting}</li>
+                        {props.admitting == "Admitting" ? <>
+                        {isRegistered ? 
                         <li className="tag__item play blue">
-                            <a className="event-link" href={props.title}>Know more</a>
+                            <Link className="event-link" to={"/event/"+props.id+"/slots"}>Get Interview</Link>
                         </li>
+                        : 
+                        <li className="tag__item play blue">
+                            <Link className="event-link" to={"/event/"+props.id+"/register"}>Apply Now</Link>
+                        </li>}
+                        {isCurrentUserAdmin() ? <li className="tag__item play blue">
+                            <Link className="event-link" to={"/event/"+props.id+"/slots/add"}>Add Interview Slots</Link>
+                        </li> : <></>}
+                        </> : <></>}
                     </ul>
                 </div>
             </article>

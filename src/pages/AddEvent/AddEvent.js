@@ -1,26 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './AddEvent.css';
-import axios from 'axios';
 import dateFormat, { masks } from "dateformat";
+import Header from "../../Components/Header/Header";
+import {isCurrentUserAdmin, post} from "../../connection";
+import {useNavigate} from "react-router-dom";
 
 function AddEvent(){ 
-
-
-
+    const navigate = useNavigate();
+    useEffect(function (){
+        var isAdmin = isCurrentUserAdmin(); 
+        if(!isAdmin){
+            navigate("/");
+        }
+    }, []);
     const [inputs,setInputs] = useState({});
     masks.DBFormat = 'yyyy-mm-dd"T"H:MM';
-
 
     var now = new Date();
     
     const min = dateFormat(now,"DBFormat");
     now.setFullYear(now.getFullYear() + 5);
     const max = dateFormat(now,"DBFormat");
-    console.log(min);
-
-
-  
 
     const handleChange = (event) => { 
         const name = event.target.name;
@@ -39,12 +40,18 @@ function AddEvent(){
 
     const handleSubmit = (event) =>{
         event.preventDefault();
-        axios.post('http://localhost:80/addevents',inputs);
-        console.log(inputs);
-    
+        post({
+            route:"/addevents",
+            data:inputs,
+            callback:function(){
+                navigate("/events");
+            }
+        });
     }
     
 return(
+    <>
+    <Header />
     <div class="AddEvent">
         <div class="add-event-container">
             <div class="add-event-title">Add Your Event</div>
@@ -87,6 +94,7 @@ return(
             </div>
         </div>
     </div>
+    </>
 );
 }
 export default AddEvent;

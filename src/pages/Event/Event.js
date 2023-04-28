@@ -5,27 +5,25 @@ import Footer from "../../Components/Footer/Footer";
 import Eventcomp from "../Events/Components/Event";
 import axios from 'axios';
 import "./Event.css"
+import {get} from "../../connection";
 
 function Event() {
     var readableDate
     const [data,setData] = useState([]);
     var pathname = window.location.pathname
     pathname = pathname.substring(pathname.lastIndexOf("/"))
-    // pathname = pathname.replaceAll("%20","%")
-    const URL = "http://localhost:80/event" + pathname
     useEffect(()=>{
-        axios.get(URL)
-        .then(function (response) {
-            setData(response.data[0]);
-        })
+        get({
+            route: "/event" + pathname,
+            callback:(response)=>{
+                setData(response.data[0]);
+            }
+        });
     },[]);
     
     var d = new Date(data.Date);
     readableDate=d.toLocaleString("en-IN");
     console.log(pathname);
-
-  
-    
 
     return(
         <div className="Event">

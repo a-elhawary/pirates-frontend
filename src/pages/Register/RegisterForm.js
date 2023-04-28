@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './RegisterForm.css';
 import logo from "../../assets/logo.png";
-import axios from 'axios';
 import dateFormat, { masks } from "dateformat";
-
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {post} from "../../connection";
 
 function RegisterForm(){
+    const navigate = useNavigate();
 
     const [showPassowrdMissmatch,setShowPasswordMissmatch] = useState(false);
     masks.DBFormat = 'yyyy-mm-dd';
@@ -54,11 +54,14 @@ function RegisterForm(){
     
     const handleSubmit = (event) =>{
         event.preventDefault();
-        axios.post('http://localhost:80/register',inputs);
-        console.log(inputs);
+        post({
+            route: "/register",
+            data: inputs,
+            callback:()=>{
+                navigate("/login");
+            }
+        });
     }
-
-
 
     return(
         <div className="RegisterForm">
@@ -138,7 +141,7 @@ function RegisterForm(){
 
                     </div>
                 </div>
-                <p className="mt-5">already have an account? <a href="">Login</a></p>
+                <p className="mt-5">already have an account? <Link to="/login">Login</Link></p>
                 <p className="mb-3 text-muted">&copy; 2009–2023</p>
             </form>
         </div>

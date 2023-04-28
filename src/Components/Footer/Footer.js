@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Footer.css"
-import logo from "../../assets/logo.png";
-import axios from 'axios';
+import {Link} from "react-router-dom";
 
 function Header() {
 
@@ -18,23 +17,18 @@ function Header() {
                         <div className="col-xs-6 col-md-3">
                             <h6>Events</h6>
                             <ul className="footer-links">
-                                <li><a href="http://scanfcode.com/category/c-language/">kofar</a></li>
-                                <li><a href="http://scanfcode.com/category/front-end-development/">7afla</a></li>
-                                <li><a href="http://scanfcode.com/category/back-end-development/">nar</a></li>
-                                <li><a href="http://scanfcode.com/category/java-programming-language/">oba</a></li>
-                                <li><a href="http://scanfcode.com/category/android/">mashy</a></li>
-                                <li><a href="http://scanfcode.com/category/templates/">slm</a></li>
+                                <li><a href=""></a></li>
                             </ul>
                         </div>
 
                         <div className="col-xs-6 col-md-3">
                             <h6>Quick Links</h6>
                             <ul className="footer-links">
-                                <li><a href="/home">Home</a></li>
-                                <li><a href="/about">About Us</a></li>
-                                <li><a href="/events">Events</a></li>
-                                <li><a href="/login">Login</a></li>
-                                <li><a href="/register">Register</a></li>
+                                <li><Link to="/home">Home</Link></li>
+                                <li><Link to="/about">About Us</Link></li>
+                                <li><Link to="/events">Events</Link></li>
+                                <li><Link to="/login">Login</Link></li>
+                                <li><Link to="/register">Register</Link></li>
                             </ul>
                         </div>
                     </div>

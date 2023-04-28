@@ -1,4 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+2&display=swap");
+.events-title{
+	margin:7vh 0;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.admin-cta{
+	border:none;
+	padding:0.25rem 1rem;
+	font-size:1.5rem;
+	border-radius:4px;
+	margin-left:1rem;
+	text-decoration:none;
+	background: linear-gradient(103deg, rgb(235, 225, 188) 7.2%, rgb(232, 188, 234) 57.5%, rgb(203, 209, 244) 90.7%);
+}
+
  .Events {
 	height: 100vh;
 	width:100vw;
@@ -11,9 +28,6 @@
 }
  .dark {
 	 background: #110f16;
-}
-.light {
-	background: linear-gradient(103deg, rgb(235, 225, 188) 7.2%, rgb(232, 188, 234) 57.5%, rgb(203, 209, 244) 90.7%);
 }
  .event-link, .event-link:hover {
 	 text-decoration: none;
@@ -34,7 +48,7 @@
 	 margin: 0 0 2rem 0;
 	 overflow: hidden;
 	 position: relative;
-	 color: #fff;
+	 background: #fff;
 }
  .eventcard.dark {
 	 background-color: #18151f;
@@ -99,16 +113,12 @@
 }
  .eventcard .eventcard__tagbox .tag__item {
 	 display: inline-block;
-	 background: rgba(83, 83, 83, 0.4);
 	 border-radius: 3px;
 	 padding: 2.5px 10px;
 	 margin: 0 5px 5px 0;
 	 cursor: default;
 	 user-select: none;
 	 transition: background-color 0.3s;
-}
- .eventcard .eventcard__tagbox .tag__item:hover {
-	 background: rgba(83, 83, 83, 0.8);
 }
  .eventcard:before {
 	 content: "";
@@ -117,7 +127,6 @@
 	 right: 0;
 	 bottom: 0;
 	 left: 0;
-	 background-image: linear-gradient(-70deg, #424242, transparent 50%);
 	 opacity: 1;
 	 border-radius: 10px;
 }
@@ -164,7 +173,7 @@
 		 transform: rotate(-4deg);
 	}
 }
- @media screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
 	 .eventcard__text {
 		 padding: 2rem 3.5rem;
 	}
@@ -185,30 +194,15 @@
 
 }
 /* COLORS */
- .eventcard .eventcard__tagbox .blue.play:hover {
+.eventcard .eventcard__tagbox .blue.play:hover {
 	 background: #341e54;
+	 color:#fff;
 }
  .blue .eventcard__title:hover {
 	 color: #341e54;
+	 color:#fff;
 }
  .blue .eventcard__bar {
 	 background-color: #341e54;
+	 color:#fff;
 }
- .blue::before {
-	 background-image: linear-gradient(-30deg, rgba(0, 118, 189, 0.1), transparent 50%);
-}
- .blue:nth-child(2n)::before {
-	 background-image: linear-gradient(30deg, rgba(0, 118, 189, 0.1), transparent 50%);
-}
-
-
- @media screen and (min-width: 769px) {
-
-	 .blue::before {
-		 background-image: linear-gradient(-80deg, rgba(0, 118, 189, 0.1), transparent 50%);
-	}
-	 .blue:nth-child(2n)::before {
-		 background-image: linear-gradient(80deg, rgba(0, 118, 189, 0.1), transparent 50%);
-	}
-}
- 

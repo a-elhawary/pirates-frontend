@@ -1,24 +1,29 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 
- .top-nav {
+.header-btn{
+	border:none;
+	color: #341f54;
+	background-color:transparent;
+}
+
+ .top-nav{
 	font-family: "Raleway";
 	box-sizing: border-box;
 	display: flex;
-position: fixed;
-
-top: 0;
-width: 100%;
-z-index: 2;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 2;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
-	/* background-color: #00baf0;*/
-	background: rgba(25,25,25,0.7);
-	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	color: #fff;
-	height: 50px;
-	padding: 1em;
+	padding: 1rem 3rem;
+	color: #341f54;
+	background-color:#fff;
+	box-shadow:5px 5px 5px rgba(0,0,0,0.2);
 }
+
+
 .top-nav .logo {
     width: 5rem;
 }
@@ -32,12 +37,12 @@ z-index: 2;
  .menu > li a {
 	text-decoration: none;
 	margin: 0 1rem;
-	color: white;
+	color: #341f54;
 	overflow: hidden;
 }
 
 .menu > li a:hover {
-	color: rgb(65, 230, 136);
+	text-decoration: underline;
 }
 
  .menu-button-container {
@@ -54,7 +59,7 @@ z-index: 2;
 }
  .menu-button, .menu-button::before, .menu-button::after {
 	display: block;
-	background-color: #fff;
+	background-color: #341f54;
 	position: absolute;
 	height: 4px;
 	width: 30px;
@@ -83,6 +88,9 @@ z-index: 2;
  @media (max-width: 700px) {
 	.menu-button-container {
 		display: flex;
+	}
+	.menu > li a{
+		color:#fff;
 	}
 	.menu {
 		position: absolute;

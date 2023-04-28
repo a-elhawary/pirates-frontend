@@ -13,9 +13,6 @@
  .dark {
 	 background: #110f16;
 }
-.light {
-	background: linear-gradient(103deg, rgb(235, 225, 188) 7.2%, rgb(232, 188, 234) 57.5%, rgb(203, 209, 244) 90.7%);
-}
 .event-link, .event-link:hover {
 	text-decoration: none;
 	transition: color 0.3s ease-in-out;
@@ -36,6 +33,7 @@
 	 overflow: hidden;
 	 position: relative;
 	 color: #fff;
+	background: linear-gradient(103deg, rgb(235, 225, 188) 7.2%, rgb(232, 188, 234) 57.5%, rgb(203, 209, 244) 90.7%);
 }
  .eventcard.dark {
 	 background-color: #18151f;

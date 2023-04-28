@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './LoginForm.css';
 import logo from "../../assets/logo.png"
-import axios from 'axios';
+import {Link, useNavigate} from "react-router-dom";
+import {post} from "../../connection";
 
 function LoginForm(){
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+
     const [inputs,setInputs] = useState({});
+    const [error, setError] = useState("");
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -18,8 +20,18 @@ function LoginForm(){
 
     const handleSubmit = (event) =>{
         event.preventDefault();
-        axios.post('http://localhost:80/login',inputs);
-        console.log(inputs);
+        post({
+            route:"/login",
+            data:inputs,
+            callback:(response)=>{
+                if(response.data.success == false){
+                    setError(response.data.message);
+                }else{
+                    localStorage.setItem("pirates-token", JSON.stringify(response.data.token));
+                    navigate("/");
+                }
+            }
+        });
     }
 
     return(
@@ -29,6 +41,7 @@ function LoginForm(){
                     <img className="mb-4" src={logo} alt="Pirates-logo" width="80%"/>
                     <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
 
+                    {error != "" ? <span style={{color:"red"}}>{error}</span> : <></>}
                     <div className="form-floating">
                         <input onChange={handleChange} type="email" className="form-control"  placeholder="name@example.com" required name="Email"/>
                         <label htmlFor="floatingInput">Email address</label>
@@ -44,7 +57,7 @@ function LoginForm(){
                     </label>
                     </div>
                     <button className="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-                    <p className="mt-5 mb-3">don't have an account? <a href="">Register Now</a></p>
+                    <p className="mt-5 mb-3">don't have an account? <Link to="/register">Register Now</Link></p>
                     <p className="mt-5 mb-3 text-muted">&copy; 2009–2023</p>
                 </form>
             </div>
