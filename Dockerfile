@@ -5,7 +5,7 @@ RUN npm install --no-package-lock
 COPY . .
 RUN npm run build --production
 
-FROM php:7.2-apache
-RUN a2enmod rewrite
+FROM nginx
 COPY --from=build /app/build /var/www/html/
+COPY nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80
